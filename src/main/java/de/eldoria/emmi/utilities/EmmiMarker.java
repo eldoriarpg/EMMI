@@ -25,17 +25,17 @@ public class EmmiMarker {
     //Alternative would be [c=<ColorLetter>] without ending condition. Is just overwritten when is should change
     private static final String COLOR = "c";
     //Creates a clickable text, which opens a url on click
-    //[url="www.eldoria.de"]<displayed text>[/url]
+    //[url={www.eldoria.de}]<displayed text>[/url]
     private static final String CLICK_OPEN_URL = "url";
     //Creates a clickable text, which executes a command or sends a text on click.
-    //[runcmd="/help"]Click here for Help[/runcmd]
+    //[runcmd={/help}]Click here for Help[/runcmd]
     //Commands without / are also possible. Ist just send as a normal chat message.
     private static final String CLICK_RUN_COMMAND = "runcmd";
     //Creates a clickable text, which writes the commwith &and or text in the chat window. Doesn't send.
-    //[sugcmd=/help]Click here for Help[/sugcmd]
+    //[sugcmd={/help}]Click here for Help[/sugcmd]
     private static final String CLICK_SUGGEST_COMMAND = "sugcmd";
     //Only usable in books. Creates a clickable text, which changes the current site of the book.
-    //[gotopage="2"]Change to page 2[/gotopage]
+    //[gotopage={2}]Change to page 2[/gotopage]
     private static final String CLICK_CHANGE_PAGE = "gotopage";
     //Creates a hoverable object, which shows a hover text. The Hover Text also Supports formatting.
     // If formatting is used. The text must be in "..."
