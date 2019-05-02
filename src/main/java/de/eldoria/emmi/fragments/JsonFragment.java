@@ -1,9 +1,9 @@
-package de.eldoria.arca.fragments;
+package de.eldoria.emmi.fragments;
 
-import de.eldoria.arca.fragments.events.ClickActionFragment;
-import de.eldoria.arca.fragments.events.HoverActionFragment;
-import de.eldoria.arca.utilities.JsonFragmentConverter;
-import de.eldoria.arca.utilities.enums.Colors;
+import de.eldoria.emmi.fragments.events.ClickActionFragment;
+import de.eldoria.emmi.fragments.events.HoverActionFragment;
+import de.eldoria.emmi.utilities.JsonFragmentConverter;
+import de.eldoria.emmi.utilities.enums.Colors;
 
 /**
  * Class to save JSON fragment.

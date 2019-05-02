@@ -1,4 +1,4 @@
-package de.eldoria.arca.utilities;
+package de.eldoria.emmi.utilities;
 
 public class PlaceHolder {
     private String placeholder;

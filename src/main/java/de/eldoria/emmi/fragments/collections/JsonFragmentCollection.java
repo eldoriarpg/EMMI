@@ -1,14 +1,14 @@
-package de.eldoria.arca.fragments.collections;
+package de.eldoria.emmi.fragments.collections;
 
-import de.eldoria.arca.fragments.ArcaFragment;
-import de.eldoria.arca.fragments.JsonFragment;
-import de.eldoria.arca.fragments.collections.enums.MarkerType;
-import de.eldoria.arca.fragments.collections.enums.ArcaFragmentType;
-import de.eldoria.arca.fragments.events.ClickActionFragment;
-import de.eldoria.arca.fragments.events.HoverActionFragment;
-import de.eldoria.arca.utilities.enums.ClickActionType;
-import de.eldoria.arca.utilities.enums.Colors;
-import de.eldoria.arca.utilities.enums.HoverActionType;
+import de.eldoria.emmi.fragments.EmmiFragment;
+import de.eldoria.emmi.fragments.JsonFragment;
+import de.eldoria.emmi.fragments.collections.enums.MarkerType;
+import de.eldoria.emmi.fragments.collections.enums.EmmiFragmentType;
+import de.eldoria.emmi.fragments.events.ClickActionFragment;
+import de.eldoria.emmi.fragments.events.HoverActionFragment;
+import de.eldoria.emmi.utilities.enums.ClickActionType;
+import de.eldoria.emmi.utilities.enums.Colors;
+import de.eldoria.emmi.utilities.enums.HoverActionType;
 
 import java.util.ArrayList;
 import java.util.Queue;
@@ -16,7 +16,7 @@ import java.util.Queue;
 /**
  * Class to generate a JSON fragment collection, which can be serialized to a json string.
  * Can be serialized to a JSON string with the to string method.
- * Needs a {@link de.eldoria.arca.fragments.collections.ArcaFragmentCollection} to be generated.
+ * Needs a {@link de.eldoria.emmi.fragments.collections.EmmiFragmentCollection} to be generated.
  */
 public class JsonFragmentCollection {
     private static final String ARRAY_OPEN = "[\"\",";
@@ -26,20 +26,20 @@ public class JsonFragmentCollection {
     private ArrayList<JsonFragment> jsonFragments = new ArrayList<JsonFragment>();
 
     /**
-     * Creates a json fragment collection from a arca fragment collection.
+     * Creates a json fragment collection from a emmi fragment collection.
      *
-     * @param collection Arca fragment collection to build the json fragments
+     * @param collection Emmi fragment collection to build the json fragments
      */
-    JsonFragmentCollection(ArcaFragmentCollection collection) {
+    JsonFragmentCollection(EmmiFragmentCollection collection) {
         build(collection.getMessageFragments());
     }
 
     /**
      * Builds an array list of json fragments.
      *
-     * @param messageFragments Queue of arca fragments
+     * @param messageFragments Queue of emmi fragments
      */
-    private void build(Queue<ArcaFragment> messageFragments) {
+    private void build(Queue<EmmiFragment> messageFragments) {
         boolean bold = false;
         boolean italic = false;
         boolean underlined = false;
@@ -49,14 +49,14 @@ public class JsonFragmentCollection {
         ClickActionFragment clickEvent = ClickActionFragment.getEmpty();
         HoverActionFragment hoverEvent = HoverActionFragment.getEmpty();
 
-        for (ArcaFragment frag : messageFragments) {
-            if (frag.getFragmentType() == ArcaFragmentType.TEXT) {
+        for (EmmiFragment frag : messageFragments) {
+            if (frag.getFragmentType() == EmmiFragmentType.TEXT) {
 
                 jsonFragments.add(new JsonFragment.Builder(frag.getMessage()).isBold(bold).isItalic(italic)
                         .isUnderlined(underlined).isStruckOut(strikethrought).isObfuscated(obfuscated)
                         .withColor(color).withClickAction(clickEvent).withHoverAction(hoverEvent).build());
 
-            } else if (frag.getFragmentType() == ArcaFragmentType.MARKER) {
+            } else if (frag.getFragmentType() == EmmiFragmentType.MARKER) {
                 MarkerType type = frag.getMarkerType();
                 switch (type) {
 

@@ -1,8 +1,8 @@
-package de.eldoria.arca.converter;
+package de.eldoria.emmi.converter;
 
-import de.eldoria.arca.fragments.collections.ArcaFragmentCollection;
-import de.eldoria.arca.fragments.collections.JsonFragmentCollection;
-import de.eldoria.arca.utilities.PlaceHolder;
+import de.eldoria.emmi.fragments.collections.EmmiFragmentCollection;
+import de.eldoria.emmi.fragments.collections.JsonFragmentCollection;
+import de.eldoria.emmi.utilities.PlaceHolder;
 
 /**
  * JsonConverter object converts a ARCA string in to an JSON string.
@@ -22,7 +22,7 @@ public class JsonConverter {
     public JsonConverter(String message, PlaceHolder... placeHolders) {
         String messageWithoutPlaceholder = applyPlaceholder(message, placeHolders);
 
-        fragmentCollection = new ArcaFragmentCollection(messageWithoutPlaceholder).toJsonFragmentCollection();
+        fragmentCollection = new EmmiFragmentCollection(messageWithoutPlaceholder).toJsonFragmentCollection();
 
     }
 

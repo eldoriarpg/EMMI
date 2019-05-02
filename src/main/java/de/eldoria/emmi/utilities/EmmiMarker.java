@@ -1,11 +1,11 @@
-package de.eldoria.arca.utilities;
+package de.eldoria.emmi.utilities;
 
-import de.eldoria.arca.fragments.collections.enums.MarkerType;
+import de.eldoria.emmi.fragments.collections.enums.MarkerType;
 
 /**
- * Class to define the arca markers.
+ * Class to define the emmi markers.
  */
-public class ArcaMarker {
+public class EmmiMarker {
     //Makes the text BOLD
     //[b]<BOLD text>[/b]
     private static final String BOLD = "b";

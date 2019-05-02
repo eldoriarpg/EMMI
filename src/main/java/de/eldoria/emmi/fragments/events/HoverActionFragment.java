@@ -1,7 +1,7 @@
-package de.eldoria.arca.fragments.events;
+package de.eldoria.emmi.fragments.events;
 
-import de.eldoria.arca.converter.JsonConverter;
-import de.eldoria.arca.utilities.enums.HoverActionType;
+import de.eldoria.emmi.converter.JsonConverter;
+import de.eldoria.emmi.utilities.enums.HoverActionType;
 
 /**
  * Class to save a hover action.

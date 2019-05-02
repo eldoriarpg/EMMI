@@ -1,18 +1,18 @@
-package de.eldoria.arca.fragments.collections;
+package de.eldoria.emmi.fragments.collections;
 
-import de.eldoria.arca.fragments.ArcaFragment;
-import de.eldoria.arca.fragments.collections.enums.MarkerAction;
-import de.eldoria.arca.fragments.collections.enums.MarkerType;
-import de.eldoria.arca.utilities.ArcaMarker;
+import de.eldoria.emmi.fragments.EmmiFragment;
+import de.eldoria.emmi.fragments.collections.enums.MarkerAction;
+import de.eldoria.emmi.fragments.collections.enums.MarkerType;
+import de.eldoria.emmi.utilities.EmmiMarker;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Collection which cuts the arca string in to arca fragments.
+ * Collection which cuts the emmi string in to emmi fragments.
  * Can be directly converted in a json fragment collection.
  */
-public class ArcaFragmentCollection {
+public class EmmiFragmentCollection {
     private static final char LOCK_MARKER_OPEN = '{';
     private static final char LOCK_MARKER_CLOSE = '}';
 
@@ -20,16 +20,16 @@ public class ArcaFragmentCollection {
     private static final char MARKDOWN_MARKER_CLOSE = ']';
     private static final char MARKDOWN_MARKER_COMPLEX = '=';
 
-    private Queue<ArcaFragment> messageFragments = new LinkedList<ArcaFragment>();
-    private String arcaString;
+    private Queue<EmmiFragment> messageFragments = new LinkedList<EmmiFragment>();
+    private String emmiString;
 
     /**
-     * Creates a new arca fragment collection. Can be converted to json fragment collection
+     * Creates a new emmi fragment collection. Can be converted to json fragment collection
      *
-     * @param arcaString Arca string from which the collection should be created.
+     * @param emmiString Emmi string from which the collection should be created.
      */
-    public ArcaFragmentCollection(String arcaString) {
-        this.arcaString = arcaString;
+    public EmmiFragmentCollection(String emmiString) {
+        this.emmiString = emmiString;
 
         StringBuilder builder = new StringBuilder();
 
@@ -40,8 +40,8 @@ public class ArcaFragmentCollection {
         boolean innerLocked = false;
         int lockedLevel = 0;
 
-        for (int i = 0; i < arcaString.length(); i++) {
-            char current = arcaString.charAt(i);
+        for (int i = 0; i < emmiString.length(); i++) {
+            char current = emmiString.charAt(i);
 
             if (innerLocked) {
                 if (current == LOCK_MARKER_OPEN) {
@@ -61,15 +61,15 @@ public class ArcaFragmentCollection {
             }
 
 
-            //ArcaMarker open. Check if it's a close or open marker
+            //EmmiMarker open. Check if it's a close or open marker
             if (current == MARKDOWN_MARKER_OPEN) {
                 if (builder.length() != 0) {
-                    messageFragments.add(new ArcaFragment(builder.toString()));
+                    messageFragments.add(new EmmiFragment(builder.toString()));
                 }
                 builder.setLength(0);
 
                 markerState = true;
-                if (arcaString.charAt(i + 1) == '/') {
+                if (emmiString.charAt(i + 1) == '/') {
                     action = MarkerAction.CLOSE;
                     i++;
                     continue;
@@ -78,7 +78,7 @@ public class ArcaFragmentCollection {
                 continue;
             }
 
-            if (markerState && current == MARKDOWN_MARKER_COMPLEX && arcaString.charAt(i + 1) == LOCK_MARKER_OPEN) {
+            if (markerState && current == MARKDOWN_MARKER_COMPLEX && emmiString.charAt(i + 1) == LOCK_MARKER_OPEN) {
                 builder.append(current);
                 innerLocked = true;
                 i++;
@@ -87,11 +87,11 @@ public class ArcaFragmentCollection {
             }
 
 
-            //ArcaMarker close. Cache in Queue
+            //EmmiMarker close. Cache in Queue
             if (markerState && current == MARKDOWN_MARKER_CLOSE) {
                 markerState = false;
-                MarkerType type = ArcaMarker.getMarkerType(builder.toString());
-                messageFragments.add(new ArcaFragment(type, action, builder.toString()));
+                MarkerType type = EmmiMarker.getMarkerType(builder.toString());
+                messageFragments.add(new EmmiFragment(type, action, builder.toString()));
                 builder.setLength(0);
                 continue;
             }
@@ -101,23 +101,23 @@ public class ArcaFragmentCollection {
         }
 
         if (!builder.toString().isEmpty()) {
-            messageFragments.add(new ArcaFragment(builder.toString()));
+            messageFragments.add(new EmmiFragment(builder.toString()));
         }
     }
 
     /**
-     * Get all arca fragments in a queue.
+     * Get all emmi fragments in a queue.
      *
      * @return acra fragment Queue
      */
-    public Queue<ArcaFragment> getMessageFragments() {
+    public Queue<EmmiFragment> getMessageFragments() {
         return messageFragments;
     }
 
     /**
-     * Converts the arca fragment collection to a json fragment collection.
+     * Converts the emmi fragment collection to a json fragment collection.
      *
-     * @return the arca fragments collection as a converted json fragment collection
+     * @return the emmi fragments collection as a converted json fragment collection
      */
     public JsonFragmentCollection toJsonFragmentCollection() {
         return new JsonFragmentCollection(this);

@@ -1,4 +1,4 @@
-package de.eldoria.arca.converter;
+package de.eldoria.emmi.converter;
 
 import org.junit.jupiter.api.Test;
 
