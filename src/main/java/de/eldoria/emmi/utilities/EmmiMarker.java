@@ -86,7 +86,7 @@ public class EmmiMarker {
             case HOVER_SHOW_ENTITY:
                 return MarkerType.H_ENTITY;
             default:
-                throw new IllegalStateException("Unexpected value: " + markerPart);
+                return MarkerType.NONE;
         }
     }
 }

@@ -91,7 +91,9 @@ public class EmmiFragmentCollection {
             if (markerState && current == MARKDOWN_MARKER_CLOSE) {
                 markerState = false;
                 MarkerType type = EmmiMarker.getMarkerType(builder.toString());
-                messageFragments.add(new EmmiFragment(type, action, builder.toString()));
+                if (type != MarkerType.NONE) {
+                    messageFragments.add(new EmmiFragment(type, action, builder.toString()));
+                }
                 builder.setLength(0);
                 continue;
             }

@@ -5,8 +5,6 @@ import de.eldoria.emmi.fragments.events.HoverActionFragment;
 import de.eldoria.emmi.utilities.enums.Colors;
 
 public class JsonFragmentConverter {
-
-
     /**
      * Get the text as JSON part.
      *
