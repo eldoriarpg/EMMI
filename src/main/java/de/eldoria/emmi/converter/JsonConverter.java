@@ -27,7 +27,7 @@ public class JsonConverter {
         String convertedMessage = message;
 
         for (Placeholder placeHolder : placeHolders) {
-            convertedMessage = placeHolder.apply(message);
+            convertedMessage = placeHolder.apply(convertedMessage);
         }
 
         return convertedMessage;
