@@ -19,8 +19,8 @@ public class EmmiMarker {
     //[s]<struck out text>[/s]
     private static final String STRIKETHROUGH = "s";
     //Obfuscates the text
-    //[k]<OBFUSCATED text>[/k]
-    private static final String OBFUSCATED = "k";
+    //[o]<OBFUSCATED text>[/o]
+    private static final String OBFUSCATED = "o";
     //Changes the COLOR of the Text. Doesn't have a end condition
     //Alternative would be [c=<ColorLetter>] without ending condition. Is just overwritten when is should change
     private static final String COLOR = "c";

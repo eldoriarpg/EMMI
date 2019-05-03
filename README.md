@@ -40,10 +40,17 @@ Pretty easy right? Just implement the EMMI to JSON converter in your plugin and 
 That sounds nice, but how difficult is the implementation?
 
 ### Basic Implementation
-
 The basic implementation is pretty easy and self explaining:\
-`String myTellrawMessage = new JsonConverter(myEmmiMessage).toString();`\
+
+Just import: `de.eldoria.emmi.converter`
+
+Then create a new JsonConverter object, pass the EMMI message and execute the toString() method.
+
+`String myTellrawMessage = new JsonConverter(myEmmiMessage).toString();`
+
 Yes thats all. I think this is pretty easy.
+
+
 
 ## Marker
 EMMI uses a marker system to format text. \
@@ -85,10 +92,10 @@ Examples:
 
 #### Obfuscated
 Description: Makes the text obfuscated\
-Start Marker: `[k]`\
-End Marker: `[/k]`\
+Start Marker: `[o]`\
+End Marker: `[/o]`\
 Examples:
-* `[k]this text is obfuscated[/k]`
+* `[o]this text is obfuscated[/o]`
 
 #### Color
 Description: Changes the color of the text. Color is set by a char.\
