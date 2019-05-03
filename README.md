@@ -1,7 +1,7 @@
 # EMMI - Eldoria Message Markup Interpreter
-EMMI is a easy way to generate complex JSON strings with a easy marker system.
+EMMI is a easy way to generate complex JSON strings with a easy marker system. It even supports Placeholder if u want.
 
-## Why should i use EMMMI?
+## Why should i use EMMI?
 EMMI is a easy way to generate complex JSON strings using config text. Its easy to read. Customizable and saves a lot of time.
 
 EMMI is designed to be as intuitive as possible without using the power of JSON.
@@ -13,14 +13,26 @@ So a bold text ist pretty easy just `[b]bold[/b]` If you want it even more simpl
 Or the hover text, which is kinda cringy to write in json. With EMMI it's just `[htext={I am a hover text}]hover me[/htext]`. Easy right?
 
 So EMMI is a good way to write long complex JSON strings even shorter and more readable. Take a look at our example.
+
+
 #### Example
+Let's say we want to write this text in a config:\
+![alt text](https://cdn.discordapp.com/attachments/484383037178642442/573273908849934368/unknown.png "")
+
+In JSON notation it would be a long string, which isn't really readable without routine.\
 **JSON Notation**: `[{\"text\":\"red \",\"color\":\"red\"},{\"text\":\"bold\",\"bold\":true,\"color\":\"red\"},{\"text\":\" italic\",\"italic\":true,\"color\":\"red\"},{\"text\":\" green\",\"italic\":true,\"color\":\"dark_green\"},{\"text\":\" blue \",\"color\":\"dark_blue\"},{\"text\":\"strike\",\"strikethrough\":true,\"color\":\"dark_blue\"}]`\
 
+With EMMI notation its way shorter and more readable:\
 **EMMI Notation**: `[c=c]red [b]bold[/b][i] italic[c=2] green[/i][c=1] blue [s]strike[/s]`\
-
-And this is how it would look ingame:\
-![alt text](https://cdn.discordapp.com/attachments/484383037178642442/573273908849934368/unknown.png "")
 Way better right?
+
+##### But why should I use EMMI? I can even make this with the normal formatting codes?
+I knew that this question comes up.\
+EMMI doesn't support only the common formatting codes of minecraft. It also supports hover and clickable text and this is pretty neat.
+Let's say you want to let a player execute a command via click on a text. But you want to write this in your config. How do you make this?\
+With EMMI it's pretty easy:\
+`You need help? Click [runcmd={/help}]here[/runcmd]`\
+Pretty easy right? Just implement the EMMI to JSON converter in your plugin and send the received chat via tellraw to the player. That's all the magic.
 
 ## Marker
 EMMI uses a marker system to format text. \
