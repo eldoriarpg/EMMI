@@ -98,7 +98,8 @@ Of course and that's why you can change the value of a placeholder every time.\
         String myEmmiMessage = "My name is %player% and I am playing on %servername%.";
 
         Placeholder.Creator c = new Placeholder.Creator();
-        c.create("%player%", "Hadde").create("%servername%", "eldoria").toArray();
+        
+        c.create("%player%", "Hadde").create("%servername%", "eldoria");
 
         String myTellrawMessage = JsonConverter.convert(myEmmiMessage, c.toArray());
         
