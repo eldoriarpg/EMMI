@@ -4,9 +4,9 @@ EMMI is a easy way to generate complex JSON strings with a easy marker system. I
 ## Why should i use EMMI?
 EMMI is a easy way to generate complex JSON strings using config text. Its easy to read. Customizable and saves a lot of time.
 
-EMMI is designed to be as intuitive as possible without using the power of JSON.
+EMMI is designed to be as intuitive as possible without loosing the power of JSON.
 
-Mostly is uses the common letters like minecraft uses them.
+Mostly is uses the common letters like Minecraft uses them.
 
 So a bold text ist pretty easy just `[b]bold[/b]` If you want it even more simple you can just write `[b]` and all the following text is bold
 
@@ -33,6 +33,17 @@ Let's say you want to let a player execute a command via click on a text. But yo
 With EMMI it's pretty easy:\
 `You need help? Click [runcmd={/help}]here[/runcmd]`\
 Pretty easy right? Just implement the EMMI to JSON converter in your plugin and send the received chat via tellraw to the player. That's all the magic.
+
+
+## Implementation
+
+That sounds nice, but how difficult is the implementation?
+
+### Basic Implementation
+
+The basic implementation is pretty easy and self explaining:\
+`String myTellrawMessage = new JsonConverter(myEmmiMessage).toString();`\
+Yes thats all. I think this is pretty easy.
 
 ## Marker
 EMMI uses a marker system to format text. \
