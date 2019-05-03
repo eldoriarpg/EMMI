@@ -9,31 +9,12 @@ import de.eldoria.emmi.fragments.collections.JsonFragmentCollection;
  */
 public class JsonConverter {
 
-    private JsonFragmentCollection fragmentCollection;
+    private JsonConverter(){}
 
-    /**
-     * Generates a new JsonConverter object, which directly converts the message in to a JSON string.
-     * The JSON string can be directly received via the toString() method.
-     *
-     * @param message      The message which should be formatted to JSON
-     * @param placeHolders One or more placeholders.
-     * @see PlaceHolder
-     */
-    public JsonConverter(String message, PlaceHolder... placeHolders) {
+    public static String convert(String message, PlaceHolder... placeHolders){
         String messageWithoutPlaceholder = applyPlaceholder(message, placeHolders);
 
-        fragmentCollection = new EmmiFragmentCollection(messageWithoutPlaceholder).toJsonFragmentCollection();
-
-    }
-
-    /**
-     * To string method to receive the formatted string.
-     *
-     * @return Formatted string.
-     */
-    @Override
-    public String toString() {
-        return fragmentCollection.toString();
+        return new EmmiFragmentCollection(messageWithoutPlaceholder).toJsonFragmentCollection().toString();
     }
 
     /**
@@ -43,7 +24,7 @@ public class JsonConverter {
      * @param placeHolders One or more placeholders.
      * @return
      */
-    private String applyPlaceholder(String message, PlaceHolder... placeHolders) {
+    private static String applyPlaceholder(String message, PlaceHolder... placeHolders) {
         String convertedMessage = message;
 
         for (PlaceHolder placeHolder : placeHolders) {

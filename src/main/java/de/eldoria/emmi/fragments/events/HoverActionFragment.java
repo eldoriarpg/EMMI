@@ -21,7 +21,7 @@ public class HoverActionFragment {
     public HoverActionFragment(HoverActionType action, String value) {
         this.action = action;
         if (action == HoverActionType.SHOW_TEXT) {
-            this.value = new JsonConverter(value).toString();
+            this.value = JsonConverter.convert(value);
         } else {
             this.value = "{" + value + "}";
         }
