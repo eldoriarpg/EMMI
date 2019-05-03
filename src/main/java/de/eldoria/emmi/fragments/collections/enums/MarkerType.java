@@ -1,4 +1,3 @@
-
 package de.eldoria.emmi.fragments.collections.enums;
 
 /**
@@ -62,5 +61,3 @@ public enum MarkerType {
      */
     H_ENTITY
 }
-
-

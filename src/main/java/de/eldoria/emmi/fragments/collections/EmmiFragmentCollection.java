@@ -20,8 +20,7 @@ public class EmmiFragmentCollection {
     private static final char MARKDOWN_MARKER_CLOSE = ']';
     private static final char MARKDOWN_MARKER_COMPLEX = '=';
 
-    private Queue<EmmiFragment> messageFragments = new LinkedList<EmmiFragment>();
-    private String emmiString;
+    private Queue<EmmiFragment> messageFragments = new LinkedList<>();
 
     /**
      * Creates a new emmi fragment collection. Can be converted to json fragment collection
@@ -29,8 +28,6 @@ public class EmmiFragmentCollection {
      * @param emmiString Emmi string from which the collection should be created.
      */
     public EmmiFragmentCollection(String emmiString) {
-        this.emmiString = emmiString;
-
         StringBuilder builder = new StringBuilder();
 
         MarkerAction action = MarkerAction.UNDEFINED;

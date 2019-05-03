@@ -11,6 +11,7 @@ import de.eldoria.emmi.utilities.enums.Colors;
 import de.eldoria.emmi.utilities.enums.HoverActionType;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -23,7 +24,7 @@ public class JsonFragmentCollection {
     private static final char ARRAY_CLOSE = ']';
     private static final char ARRAY_DIVIDER = ',';
 
-    private ArrayList<JsonFragment> jsonFragments = new ArrayList<JsonFragment>();
+    private List<JsonFragment> jsonFragments = new ArrayList<>();
 
     /**
      * Creates a json fragment collection from a emmi fragment collection.

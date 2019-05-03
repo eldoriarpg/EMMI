@@ -13,7 +13,8 @@ public final class JsonConverter {
 
     /**
      * Converts a EMMI message to a JSON string.
-     * @param message EMMI message
+     *
+     * @param message      EMMI message
      * @param placeHolders placeholder array
      * @return JSON string
      */
@@ -28,7 +29,7 @@ public final class JsonConverter {
      *
      * @param message      The message where the placeholders should be applied
      * @param placeHolders One or more placeholders.
-     * @return
+     * @return return a string with the placeholder replaced
      */
     private static String applyPlaceholder(String message, Placeholder... placeHolders) {
         String convertedMessage = message;
