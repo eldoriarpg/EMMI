@@ -6,11 +6,18 @@ import de.eldoria.emmi.fragments.collections.EmmiFragmentCollection;
 /**
  * JsonConverter object converts a ARCA string in to an JSON string.
  */
-public class JsonConverter {
+public final class JsonConverter {
 
-    private JsonConverter(){}
+    private JsonConverter() {
+    }
 
-    public static String convert(String message, Placeholder... placeHolders){
+    /**
+     * Converts a EMMI message to a JSON string.
+     * @param message EMMI message
+     * @param placeHolders placeholder array
+     * @return JSON string
+     */
+    public static String convert(String message, Placeholder... placeHolders) {
         String messageWithoutPlaceholder = applyPlaceholder(message, placeHolders);
 
         return new EmmiFragmentCollection(messageWithoutPlaceholder).toJsonFragmentCollection().toString();

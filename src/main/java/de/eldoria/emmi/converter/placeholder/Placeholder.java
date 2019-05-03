@@ -2,7 +2,7 @@ package de.eldoria.emmi.converter.placeholder;
 
 import java.util.HashMap;
 
-public class Placeholder {
+public final class Placeholder {
     private String placeholder;
     private String replacement;
 
@@ -40,19 +40,21 @@ public class Placeholder {
 
         /**
          * Creates a new placeholder.
+         *
          * @param placeholder value which should be replaced
-         * @param value new value
+         * @param value       new value
          * @return Creator object to concat multiple creations.
          */
-        public Creator create(String placeholder, String value){
-            placeholderHashMap.put(placeholder,value);
+        public Creator create(String placeholder, String value) {
+            placeholderHashMap.put(placeholder, value);
             changed = true;
             return this;
         }
 
         /**
          * Changes the value of a placeholder, if the placeholder exists.
-         * @param key placeholder which should be replaced
+         *
+         * @param key   placeholder which should be replaced
          * @param value new value of the placeholder
          */
         public void changePlaceholderValue(String key, String value) {
@@ -64,22 +66,24 @@ public class Placeholder {
 
         /**
          * Removes the placeholder from the collection.
-         * @param key
+         *
+         * @param key placeholder
          */
-        public void removePlaceholder(String key){
+        public void removePlaceholder(String key) {
             placeholderHashMap.remove(key);
             changed = true;
         }
 
         /**
          * Get an array of all existing placeholders.
+         *
          * @return array of placeholder
          */
-        public Placeholder[] toArray(){
-            if(changed){
+        public Placeholder[] toArray() {
+            if (changed) {
                 placeholder = new Placeholder[placeholderHashMap.size()];
                 int i = 0;
-                for (String key : placeholderHashMap.keySet()){
+                for (String key : placeholderHashMap.keySet()) {
                     placeholder[i] = new Placeholder(key, placeholderHashMap.get(key));
                     i++;
                 }
@@ -91,7 +95,7 @@ public class Placeholder {
         /**
          * Removes all cached placeholders.
          */
-        public void clearPlaceholder(){
+        public void clearPlaceholder() {
             placeholderHashMap.clear();
             placeholder = new Placeholder[0];
             changed = true;

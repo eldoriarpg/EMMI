@@ -107,7 +107,7 @@ public class JsonFragmentConverter {
      */
     public static String getHover(HoverActionFragment eventFragment) {
         String eventName = eventFragment.getAction().toString().toLowerCase();
-        if(eventFragment.getAction() == HoverActionType.SHOW_ITEM){
+        if (eventFragment.getAction() == HoverActionType.SHOW_ITEM) {
             return String.format("\"hoverEvent\":{\"action\":\"%s\",\"value\":\"%s\"}",
                     eventName, eventFragment.getValue());
         }
