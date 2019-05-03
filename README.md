@@ -28,7 +28,7 @@ Way better right?
 
 #### But why should I use EMMI? I can even make this with the normal formatting codes?
 I knew that this question comes up.\
-EMMI doesn't support only the common formatting codes of minecraft. It also supports hover and clickable text and this is pretty neat.
+EMMI doesn't support only the common formatting codes of Minecraft. It also supports hover and clickable text and this is pretty neat.
 Let's say you want to let a player execute a command via click on a text. But you want to write this in your config. How do you make this?\
 With EMMI it's pretty easy:\
 `You need help? Click [runcmd={/help}]here[/runcmd]`\
@@ -44,9 +44,9 @@ The basic implementation is pretty easy and self explaining:\
 
 Just import: `de.eldoria.emmi.converter`
 
-Then create a new JsonConverter object, pass the EMMI message and execute the toString() method.
+Then call the static method convert() on JsonConverter and pass the EMMI message.
 
-`String myTellrawMessage = new JsonConverter(myEmmiMessage).toString();`
+`String myTellrawMessage = JsonConverter.convert(myEmmiMessage);`
 
 Yes thats all. I think this is pretty easy.
 
