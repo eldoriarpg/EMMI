@@ -15,7 +15,7 @@ Or the hover text, which is kinda cringy to write in json. With EMMI it's just `
 So EMMI is a good way to write long complex JSON strings even shorter and more readable. Take a look at our example.
 
 
-#### Example
+### Example
 Let's say we want to write this text in a config:\
 ![alt text](https://cdn.discordapp.com/attachments/484383037178642442/573273908849934368/unknown.png "")
 
@@ -26,7 +26,7 @@ With EMMI notation its way shorter and more readable:\
 **EMMI Notation**: `[c=c]red [b]bold[/b][i] italic[c=2] green[/i][c=1] blue [s]strike[/s]`\
 Way better right?
 
-##### But why should I use EMMI? I can even make this with the normal formatting codes?
+#### But why should I use EMMI? I can even make this with the normal formatting codes?
 I knew that this question comes up.\
 EMMI doesn't support only the common formatting codes of minecraft. It also supports hover and clickable text and this is pretty neat.
 Let's say you want to let a player execute a command via click on a text. But you want to write this in your config. How do you make this?\

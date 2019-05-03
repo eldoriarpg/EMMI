@@ -109,7 +109,7 @@ public class JsonFragmentConverter {
         String eventName = eventFragment.getAction().toString().toLowerCase();
         if(eventFragment.getAction() == HoverActionType.SHOW_ITEM){
             return String.format("\"hoverEvent\":{\"action\":\"%s\",\"value\":\"%s\"}",
-                    eventName, eventFragment.getValue())
+                    eventName, eventFragment.getValue());
         }
         return String.format("\"hoverEvent\":{\"action\":\"%s\",\"value\":%s}",
                 eventName, eventFragment.getValue());
