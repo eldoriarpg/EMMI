@@ -1,6 +1,27 @@
 # EMMI - Eldoria Message Markup Interpreter
 EMMI is a easy way to generate complex JSON strings with a easy marker system.
 
+## Why should i use EMMMI?
+EMMI is a easy way to generate complex JSON strings using config text. Its easy to read. Customizable and saves a lot of time.
+
+EMMI is designed to be as intuitive as possible without using the power of JSON.
+
+Mostly is uses the common letters like minecraft uses them.
+
+So a bold text ist pretty easy just `[b]bold[/b]` If you want it even more simple you can just write `[b]` and all the following text is bold
+
+Or the hover text, which is kinda cringy to write in json. With EMMI it's just `[htext={I am a hover text}]hover me[/htext]`. Easy right?
+
+So EMMI is a good way to write long complex JSON strings even shorter and more readable. Take a look at our example.
+#### Example
+**JSON Notation**: `[{\"text\":\"red \",\"color\":\"red\"},{\"text\":\"bold\",\"bold\":true,\"color\":\"red\"},{\"text\":\" italic\",\"italic\":true,\"color\":\"red\"},{\"text\":\" green\",\"italic\":true,\"color\":\"dark_green\"},{\"text\":\" blue \",\"color\":\"dark_blue\"},{\"text\":\"strike\",\"strikethrough\":true,\"color\":\"dark_blue\"}]`\
+
+**EMMI Notation**: `[c=c]red [b]bold[/b][i] italic[c=2] green[/i][c=1] blue [s]strike[/s]`\
+
+And this is how it would look ingame:\
+![alt text](https://cdn.discordapp.com/attachments/484383037178642442/573273908849934368/unknown.png "")
+Way better right?
+
 ## Marker
 EMMI uses a marker system to format text. \
 Marker can start or end a section.\
@@ -64,17 +85,48 @@ Examples:
 
 #### Run Command / Write Text
 Description: Creates a clickable text, which runs a command or sends a message to the chat\
-Start Marker: `[runcmd={<command>}]`\
+Start Marker: `[runcmd={<command/text>}]`\
 End Marker: `[/runcmd]`\
 Examples:
 * `[runcmd={/help}]click here for help[/runcmd]` => creates a clickable text, which executes the "/help" command on click.
 * `[rundmc={I am awesome}]Are you awesome? Click to find it out![/runcmd]` => creates a clickable text, which sends the message "I am awesome" to the chat on click.
 
-#### Bold
-Description: \
-Start Marker: `[]`\
-End Marker: `[/]`\
+#### Suggest Command / Text
+Description: Creates a clickable text, which suggests a command or text to the player. \
+Start Marker: `[sugcmd={<command/text>}]`\
+End Marker: `[/sugcmd]`\
 Examples:
-* 
-*
-*
+* `[sugcmd={/msg eldoria}]Click here to send a message to eldoria[/sugcmd]` => suggests a "/msg eldoria" command to the player.
+* `[sugcmd={I am groot}]Click here for some wise words to send[/sugcmd]` => suggests the player to send "I am groot" in the chat.
+
+#### Change Page
+Description: Changes the page of a book. Obviously only works in books.\
+Start Marker: `[gotopage={<pagecount>]`\
+End Marker: `[/gotopage]`\
+Examples:
+* `[gotopage={2}]Click here to go to site 2[/gotopage]` => Changes to site 2 in the book
+
+#### Hover Text
+Description: Displays a text on Hover.\
+Markers can used for the hover Text. Except the hover or click Marker ;)\
+Start Marker: `[htext={hovertext}]`\
+End Marker: `[/htext]`\
+Examples:
+* `[htext={this text is shown when you over over "hover me"}]hover me[/htext]` => Shows the text, when you hover over "hover me"
+* `[htext={[b]this is a nice bold text[/b]}]show me some nice bold text[/htext]`=> Shows a bold text on hover.
+
+#### Hover Item
+Description: Displays a item on hover.\
+The Item input is as a NBT-JSON string.\
+Start Marker: `[hitem={<json-nbt string>}]`\
+End Marker: `[/hitem]`\
+Examples:
+* `[hitem={id:"minecraft:stone",Damage:5,Count:2,tag:{display:{Name:Testing}}}]display test item[/hitem]`
+
+#### Hover Entity
+Description: Displays an entity on hover\
+The entity input is as a NBT-JSON string
+Start Marker: `[hentity={<json-nbt string>}]`\
+End Marker: `[/hentity]`\
+Examples:
+* `[hentity={id:7e4a61cc-83fa-4441-a299-bf69786e610a,type:minecraft:zombie,name:Zombie}]show me a zombie[/hentity]`
