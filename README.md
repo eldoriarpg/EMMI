@@ -34,6 +34,18 @@ With EMMI it's pretty easy:\
 `You need help? Click [runcmd={/help}]here[/runcmd]`\
 Pretty easy right? Just implement the EMMI to JSON converter in your plugin and send the received message via tellraw to the player. That's all the magic.
 
+Maybe i should show you a more complex example:\
+A text with some color and some style elements:\
+![message image](https://cdn.discordapp.com/attachments/232204409306742784/573893966630486036/unknown.png "")\
+and a text hover:\
+![hover image](https://cdn.discordapp.com/attachments/232204409306742784/573894051116482564/unknown.png "")
+
+**JSON Notation**: `["",{"text":"Small "},{"text":"bold and ","bold":true},{"text":"italic and ","bold":true,"italic":true},{"text":"colored test","bold":true,"italic":true,"color":"dark_red"},{"text":" and maybe a small "},{"text":"hover test","hoverEvent":{"action":"show_text","value":["",{"text":"bold and colored ","bold":true},{"text":"hover","bold":true,"color":"dark_blue"},{"text":" text","bold":true}]}}]`\
+Can still read this in a easy way? or even write this quick?
+
+**EMMI Notation**: `Small [b]bold and [i]italic and [c=4]colored test[c=r][/b][/i] and maybe a small [htext={[b]bold and colored [c=1]hover[c=r] text[/b]}]hover test[/htext]`\
+This is way easier to understand and pretty neat
+
 
 ## Implementation
 
