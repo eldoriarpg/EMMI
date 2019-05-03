@@ -2,12 +2,12 @@
 EMMI is a easy way to generate complex JSON strings with a easy marker system. It even supports Placeholder if u want.
 
 ## Overview
-* [Why should I use EMMI?](https://github.com/eldoriarpg/EMMI/tree/development#why-should-i-use-emmi)
-  * [Example](https://github.com/eldoriarpg/EMMI/tree/development#example)
-* [Implementation](https://github.com/eldoriarpg/EMMI/tree/development#implementation)
-  * [Basic Implementation](https://github.com/eldoriarpg/EMMI/tree/development#basic-implementation)
-  * [Implementation with Placeholdern](https://github.com/eldoriarpg/EMMI/tree/development#implementation-with-placeholdern)
-* [Marker](https://github.com/eldoriarpg/EMMI/tree/development#marker)
+* [Why should I use EMMI?](https://github.com/eldoriarpg/EMMI/tree/master#why-should-i-use-emmi)
+  * [Example](https://github.com/eldoriarpg/EMMI/tree/master#example)
+* [Implementation](https://github.com/eldoriarpg/EMMI/tree/master#implementation)
+  * [Basic Implementation](https://github.com/eldoriarpg/EMMI/tree/master#basic-implementation)
+  * [Implementation with Placeholdern](https://github.com/eldoriarpg/EMMI/tree/master#implementation-with-placeholdern)
+* [Marker](https://github.com/eldoriarpg/EMMI/tree/master#marker)
 
 ## Why should I use EMMI?
 EMMI is a easy way to generate complex JSON strings using config text. Its easy to read. Customizable and saves a lot of time.
