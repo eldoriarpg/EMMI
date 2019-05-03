@@ -1,8 +1,7 @@
 package de.eldoria.emmi.converter;
 
-import de.eldoria.emmi.converter.placeholder.PlaceHolder;
+import de.eldoria.emmi.converter.placeholder.Placeholder;
 import de.eldoria.emmi.fragments.collections.EmmiFragmentCollection;
-import de.eldoria.emmi.fragments.collections.JsonFragmentCollection;
 
 /**
  * JsonConverter object converts a ARCA string in to an JSON string.
@@ -11,7 +10,7 @@ public class JsonConverter {
 
     private JsonConverter(){}
 
-    public static String convert(String message, PlaceHolder... placeHolders){
+    public static String convert(String message, Placeholder... placeHolders){
         String messageWithoutPlaceholder = applyPlaceholder(message, placeHolders);
 
         return new EmmiFragmentCollection(messageWithoutPlaceholder).toJsonFragmentCollection().toString();
@@ -24,10 +23,10 @@ public class JsonConverter {
      * @param placeHolders One or more placeholders.
      * @return
      */
-    private static String applyPlaceholder(String message, PlaceHolder... placeHolders) {
+    private static String applyPlaceholder(String message, Placeholder... placeHolders) {
         String convertedMessage = message;
 
-        for (PlaceHolder placeHolder : placeHolders) {
+        for (Placeholder placeHolder : placeHolders) {
             convertedMessage = placeHolder.apply(message);
         }
 
