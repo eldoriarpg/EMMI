@@ -64,7 +64,11 @@ Yes thats all. I think this is pretty easy.
 
 ### Implementation with Placeholdern
 Placeholder are one more nice feature of EMMI. They are simple but useful.
-Let's start with the creation.
+
+First of all comes the import:
+`de.eldoria.emmi.converter.placeholder`
+
+Now we can start with the creation.
 
 **Creation**\
 To create Placeholders you will need a placeholder creator. It first seems a bit weird, but in the end it will be useful.\
