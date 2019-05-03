@@ -1,5 +1,6 @@
 package de.eldoria.emmi.converter;
 
+import de.eldoria.emmi.converter.placeholder.Placeholder;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -7,6 +8,18 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JsonConverterTest {
+
+    @Test
+    void testPlaceholder(){
+        String myEmmiMessage = "My name is %player% and I am playing on %servername%.";
+
+        Placeholder.Creator c = new Placeholder.Creator();
+        c.create("%player%", "Hadde").create("%servername%", "eldoria").toArray();
+
+        String myTellrawMessage = JsonConverter.convert(myEmmiMessage, c.toArray());
+
+        assertEquals("{\"text\":\"My name is Hadde and I am playing on eldoria.\"}", myTellrawMessage);
+    }
 
     @Test
     void testBoldMarker() {
