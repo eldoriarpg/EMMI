@@ -32,7 +32,7 @@ EMMI doesn't support only the common formatting codes of minecraft. It also supp
 Let's say you want to let a player execute a command via click on a text. But you want to write this in your config. How do you make this?\
 With EMMI it's pretty easy:\
 `You need help? Click [runcmd={/help}]here[/runcmd]`\
-Pretty easy right? Just implement the EMMI to JSON converter in your plugin and send the received chat via tellraw to the player. That's all the magic.
+Pretty easy right? Just implement the EMMI to JSON converter in your plugin and send the received message via tellraw to the player. That's all the magic.
 
 
 ## Implementation
@@ -99,7 +99,8 @@ Examples:
 
 #### Color
 Description: Changes the color of the text. Color is set by a char.\
-To reset the color use the 'r' char\
+To reset the color use the 'r' char.\
+The other colors are the common minecraft colors. You can find them [here](https://wiki.vg/Chat#Colors). \
 Start Marker: `[c=<ColorChar>]`\
 End Marker: The color doesn't have an end marker. It just overrides the last set color.\
 Examples:
@@ -155,7 +156,7 @@ Examples:
 
 #### Hover Entity
 Description: Displays an entity on hover\
-The entity input is as a NBT-JSON string
+The entity input is as a NBT-JSON string.\
 Start Marker: `[hentity={<json-nbt string>}]`\
 End Marker: `[/hentity]`\
 Examples:
