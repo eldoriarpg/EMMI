@@ -96,6 +96,6 @@ class JsonConverterTest {
     @Test
     void testMixedMarker2(){
         String converted = JsonConverter.convert("Small [b]bold and [i]italic and [c=4]colored test[c=r][/b][/i] and maybe a small [htext={[b]bold and colored [c=1]hover[c=r] text[/b]}]hover test[/htext]");
-        assertEquals("[\"\",{\"text\":\"Small \"},{\"text\":\"bold and \",\"bold\":true},{\"text\":\"italic and \",\"bold\":true,\"italic\":true},{\"text\":\"test\",\"bold\":true,\"italic\":true,\"color\":\"dark_red\"},{\"text\":\" and maybe a small \"},{\"text\":\"hover test\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":[\"\",{\"text\":\"bold and colored \",\"bold\":true},{\"text\":\"hover\",\"bold\":true,\"color\":\"dark_blue\"},{\"text\":\" text\",\"bold\":true}]}}]",converted);
+        assertEquals("[\"\",{\"text\":\"Small \"},{\"text\":\"bold and \",\"bold\":true},{\"text\":\"italic and \",\"bold\":true,\"italic\":true},{\"text\":\"colored test\",\"bold\":true,\"italic\":true,\"color\":\"dark_red\"},{\"text\":\" and maybe a small \"},{\"text\":\"hover test\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":[\"\",{\"text\":\"bold and colored \",\"bold\":true},{\"text\":\"hover\",\"bold\":true,\"color\":\"dark_blue\"},{\"text\":\" text\",\"bold\":true}]}}]",converted);
     }
 }
