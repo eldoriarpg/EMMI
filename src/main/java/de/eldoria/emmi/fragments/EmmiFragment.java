@@ -1,16 +1,16 @@
-package de.eldoria.arca.fragments;
+package de.eldoria.emmi.fragments;
 
-import de.eldoria.arca.fragments.collections.enums.MarkerAction;
-import de.eldoria.arca.fragments.collections.enums.MarkerType;
-import de.eldoria.arca.fragments.collections.enums.ArcaFragmentType;
+import de.eldoria.emmi.fragments.collections.enums.MarkerAction;
+import de.eldoria.emmi.fragments.collections.enums.MarkerType;
+import de.eldoria.emmi.fragments.collections.enums.EmmiFragmentType;
 
 /**
- * Class to save a arca fragment.
+ * Class to save a emmi fragment.
  */
-public class ArcaFragment {
+public class EmmiFragment {
     private static final String DIVIDER = "=";
 
-    private ArcaFragmentType fragmentType;
+    private EmmiFragmentType fragmentType;
 
     private String message;
 
@@ -19,35 +19,35 @@ public class ArcaFragment {
     private String marker;
 
     /**
-     * Creates a new arca fragment with a text.
+     * Creates a new emmi fragment with a text.
      *
      * @param message the message which should be saved
      */
-    public ArcaFragment(String message) {
-        fragmentType = ArcaFragmentType.TEXT;
+    public EmmiFragment(String message) {
+        fragmentType = EmmiFragmentType.TEXT;
         this.message = message;
     }
 
     /**
-     * Creates a new arca fragment with a marker.
+     * Creates a new emmi fragment with a marker.
      *
      * @param type   type of the marker
      * @param action action of the marker
      * @param marker the whole marker as a string
      */
-    public ArcaFragment(MarkerType type, MarkerAction action, String marker) {
-        fragmentType = ArcaFragmentType.MARKER;
+    public EmmiFragment(MarkerType type, MarkerAction action, String marker) {
+        fragmentType = EmmiFragmentType.MARKER;
         this.markerType = type;
         this.action = action;
         this.marker = marker;
     }
 
     /**
-     * Get the fragment type. {@link de.eldoria.arca.fragments.collections.enums.ArcaFragmentType}
+     * Get the fragment type. {@link de.eldoria.emmi.fragments.collections.enums.EmmiFragmentType}
      *
-     * @return fragment type of the arca fragment
+     * @return fragment type of the emmi fragment
      */
-    public ArcaFragmentType getFragmentType() {
+    public EmmiFragmentType getFragmentType() {
         return fragmentType;
     }
 
@@ -62,7 +62,7 @@ public class ArcaFragment {
     }
 
     /**
-     * Get the marker type {@link de.eldoria.arca.fragments.collections.enums.MarkerType}
+     * Get the marker type {@link de.eldoria.emmi.fragments.collections.enums.MarkerType}
      * Only valid it the fragment type is a marker.
      *
      * @return MarkerType of the fragment

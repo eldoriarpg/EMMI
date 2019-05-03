@@ -1,4 +1,4 @@
-package de.eldoria.arca.utilities.enums;
+package de.eldoria.emmi.utilities.enums;
 
 /**
  * enum to define the color and parse them.

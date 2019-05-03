@@ -1,4 +1,4 @@
-package de.eldoria.arca.fragments.collections.enums;
+package de.eldoria.emmi.fragments.collections.enums;
 
 public enum MarkerAction {
     /**

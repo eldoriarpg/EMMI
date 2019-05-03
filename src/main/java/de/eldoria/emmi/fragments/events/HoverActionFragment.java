@@ -1,7 +1,7 @@
-package de.eldoria.arca.fragments.events;
+package de.eldoria.emmi.fragments.events;
 
-import de.eldoria.arca.converter.JsonConverter;
-import de.eldoria.arca.utilities.enums.HoverActionType;
+import de.eldoria.emmi.converter.JsonConverter;
+import de.eldoria.emmi.utilities.enums.HoverActionType;
 
 /**
  * Class to save a hover action.
@@ -21,7 +21,7 @@ public class HoverActionFragment {
     public HoverActionFragment(HoverActionType action, String value) {
         this.action = action;
         if (action == HoverActionType.SHOW_TEXT) {
-            this.value = new JsonConverter(value).toString();
+            this.value = JsonConverter.convert(value);
         } else {
             this.value = "{" + value + "}";
         }

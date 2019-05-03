@@ -1,12 +1,11 @@
-package de.eldoria.arca.utilities;
+package de.eldoria.emmi.utilities;
 
-import de.eldoria.arca.fragments.events.ClickActionFragment;
-import de.eldoria.arca.fragments.events.HoverActionFragment;
-import de.eldoria.arca.utilities.enums.Colors;
+import de.eldoria.emmi.fragments.events.ClickActionFragment;
+import de.eldoria.emmi.fragments.events.HoverActionFragment;
+import de.eldoria.emmi.utilities.enums.Colors;
+import de.eldoria.emmi.utilities.enums.HoverActionType;
 
 public class JsonFragmentConverter {
-
-
     /**
      * Get the text as JSON part.
      *
@@ -108,6 +107,10 @@ public class JsonFragmentConverter {
      */
     public static String getHover(HoverActionFragment eventFragment) {
         String eventName = eventFragment.getAction().toString().toLowerCase();
+        if (eventFragment.getAction() == HoverActionType.SHOW_ITEM) {
+            return String.format("\"hoverEvent\":{\"action\":\"%s\",\"value\":\"%s\"}",
+                    eventName, eventFragment.getValue());
+        }
         return String.format("\"hoverEvent\":{\"action\":\"%s\",\"value\":%s}",
                 eventName, eventFragment.getValue());
     }

@@ -1,6 +1,6 @@
-package de.eldoria.arca.fragments.events;
+package de.eldoria.emmi.fragments.events;
 
-import de.eldoria.arca.utilities.enums.ClickActionType;
+import de.eldoria.emmi.utilities.enums.ClickActionType;
 
 /**
  * Class to safe a click action.

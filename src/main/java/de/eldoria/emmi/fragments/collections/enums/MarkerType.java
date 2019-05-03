@@ -1,5 +1,4 @@
-
-package de.eldoria.arca.fragments.collections.enums;
+package de.eldoria.emmi.fragments.collections.enums;
 
 /**
  * Defines the type of a marker.
@@ -62,5 +61,3 @@ public enum MarkerType {
      */
     H_ENTITY
 }
-
-

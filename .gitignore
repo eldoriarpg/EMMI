@@ -73,3 +73,7 @@ fabric.properties
 # Maven
 log/
 target/
+
+emmi\.properties
+
+emmi\.xml
