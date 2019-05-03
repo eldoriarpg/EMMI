@@ -1,8 +1,8 @@
 package de.eldoria.emmi.converter;
 
+import de.eldoria.emmi.converter.placeholder.PlaceHolder;
 import de.eldoria.emmi.fragments.collections.EmmiFragmentCollection;
 import de.eldoria.emmi.fragments.collections.JsonFragmentCollection;
-import de.eldoria.emmi.utilities.PlaceHolder;
 
 /**
  * JsonConverter object converts a ARCA string in to an JSON string.
