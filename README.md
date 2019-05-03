@@ -10,54 +10,59 @@ EMMI is a easy way to generate complex JSON strings with a easy marker system. I
 * [Marker](https://github.com/eldoriarpg/EMMI/tree/development#marker)
 
 ## Why should I use EMMI?
-EMMI is a easy way to generate complex JSON strings using config text. Its easy to read. Customizable and saves a lot of time.
+EMMI is a easy way to generate complex JSON strings using config text. It's easy to read, customizable and saves a lot of time.
 
 EMMI is designed to be as intuitive as possible without loosing the power of JSON.
 
-Mostly is uses the common letters like Minecraft uses them.
+It mostly used a markup system similar to BB codes combines with known minecraft formatting techniques.
 
-So a bold text ist pretty easy just `[b]bold[/b]` If you want it even more simple you can just write `[b]` and all the following text is bold
+A bold text is pretty easy just `[b]bold[/b]`. Here is a small change we made compared to minecraft styles. We changed the letters of the marker to more intuitive letters.
 
 Or the hover text, which is kinda cringy to write in json. With EMMI it's just `[htext={I am a hover text}]hover me[/htext]`. Easy right?
 
 So EMMI is a good way to write long complex JSON strings even shorter and more readable. Take a look at our example.
-
 
 ### Example
 Let's say we want to write this text in a config:\
 ![alt text](https://cdn.discordapp.com/attachments/484383037178642442/573273908849934368/unknown.png "")
 
 In JSON notation it would be a long string, which isn't really readable without routine.\
-**JSON Notation**: `[{\"text\":\"red \",\"color\":\"red\"},{\"text\":\"bold\",\"bold\":true,\"color\":\"red\"},{\"text\":\" italic\",\"italic\":true,\"color\":\"red\"},{\"text\":\" green\",\"italic\":true,\"color\":\"dark_green\"},{\"text\":\" blue \",\"color\":\"dark_blue\"},{\"text\":\"strike\",\"strikethrough\":true,\"color\":\"dark_blue\"}]`\
+**JSON Notation**:\
+`[{"text":"red ","color":"red"},{"text":"bold","bold":true,"color":"red"},{"text":" italic","italic":true,"color":"red"},{"text":" green","italic":true,"color":"dark_green"},{"text":" blue ","color":"dark_blue"},{"text":"strike","strikethrough":true,"color":"dark_blue"}]`
 
 With EMMI notation its way shorter and more readable:\
-**EMMI Notation**: `[c=c]red [b]bold[/b][i] italic[c=2] green[/i][c=1] blue [s]strike[/s]`\
+**EMMI Notation**:\
+`[c=c]red [b]bold[/b][i] italic[c=2] green[/i][c=1] blue [s]strike[/s]`\
 Way better right?
 
 #### But why should I use EMMI? I can even make this with the normal formatting codes?
-I knew that this question comes up.\
-EMMI doesn't support only the common formatting codes of Minecraft. It also supports hover and clickable text and this is pretty neat.
+I knew that this question would comes up.\
+EMMI doesn't support only the common formatting codes of Minecraft. It also supports hover and clickable text and this is a big plus.\
 Let's say you want to let a player execute a command via click on a text. But you want to write this in your config. How do you make this?\
 With EMMI it's pretty easy:\
 `You need help? Click [runcmd={/help}]here[/runcmd]`\
-Pretty easy right? Just implement the EMMI to JSON converter in your plugin and send the received message via tellraw to the player. That's all the magic.
+Did i told ya right? Just implement the EMMI to JSON converter in your plugin and send the received message via tellraw to the player. That's all the magic.
+
+Not convinced yet?
 
 Maybe i should show you a more complex example:\
-A text with some color and some style elements:\
+A text with some colors and some style elements:\
 ![message image](https://cdn.discordapp.com/attachments/232204409306742784/573893966630486036/unknown.png "")\
 and a text hover:\
 ![hover image](https://cdn.discordapp.com/attachments/232204409306742784/573894051116482564/unknown.png "")
 
-**JSON Notation**: `["",{"text":"Small "},{"text":"bold and ","bold":true},{"text":"italic and ","bold":true,"italic":true},{"text":"colored test","bold":true,"italic":true,"color":"dark_red"},{"text":" and maybe a small "},{"text":"hover test","hoverEvent":{"action":"show_text","value":["",{"text":"bold and colored ","bold":true},{"text":"hover","bold":true,"color":"dark_blue"},{"text":" text","bold":true}]}}]`\
-Can still read this in a easy way? or even write this quick?
+**JSON Notation**:\
+`["",{"text":"Small "},{"text":"bold and ","bold":true},{"text":"italic and ","bold":true,"italic":true},{"text":"colored test","bold":true,"italic":true,"color":"dark_red"},{"text":" and maybe a small "},{"text":"hover test","hoverEvent":{"action":"show_text","value":["",{"text":"bold and colored ","bold":true},{"text":"hover","bold":true,"color":"dark_blue"},{"text":" text","bold":true}]}}]`\
+Can you still read this in a easy way? Or even write this quick?
 
-**EMMI Notation**: `Small [b]bold and [i]italic and [c=4]colored test[c=r][/b][/i] and maybe a small [htext={[b]bold and colored [c=1]hover[c=r] text[/b]}]hover test[/htext]`\
-This is way easier to understand and pretty neat
-
+**EMMI Notation**:\
+`Small [b]bold and [i]italic and [c=4]colored test[c=r][/b][/i] and maybe a small [htext={[b]bold and colored [c=1]hover[c=r] text[/b]}]hover test[/htext]`\
+This is way easier to understand and pretty neat. As you can see, it is also possible to use marker in the hover text.
 
 ## Implementation
 
-That looks nice, but how difficult is the implementation?
+That looks nice, but how difficult is the implementation?\
+Getting started is realy easy. It is just one line for the basic EMMI implementation. Let's have a look.
 
 ### Basic Implementation
 The basic implementation is pretty easy and self explaining:
@@ -68,12 +73,12 @@ Then call the static method convert() on JsonConverter and pass the EMMI message
 
 `String myTellrawMessage = JsonConverter.convert(myEmmiMessage);`
 
-Yes thats all. I think this is pretty easy.
+Yes thats all. I think this is pretty easy. You can do it :3
 
 ### Implementation with Placeholdern
 Placeholder are one more nice feature of EMMI. They are simple but useful.
 
-First of all comes the import:
+First comes the import:\
 `de.eldoria.emmi.converter.placeholder`
 
 Now we can start with the creation.
@@ -109,15 +114,19 @@ Of course and that's why you can change the value of a placeholder every time.\
         
         c.create("%player%", "Hadde").create("%servername%", "eldoria");
 
-        String myTellrawMessage = JsonConverter.convert(myEmmiMessage, c.toArray());
+        String myTellrawMessage1 = JsonConverter.convert(myEmmiMessage, c.toArray());
         
         c.changePlaceholderValue("%player%", "SirYwell");  //Changes the player name to "SirYwell"
         
-        myTellrawMessage = JsonConverter.convert(myEmmiMessage, c.toArray());
+        String myTellrawMessage2 = JsonConverter.convert(myEmmiMessage, c.toArray());
 
-Now there are two more small feature. Of course you can also delete one:\
+So your first Message will look like the previous. But your second is slightly different:\
+`{"text":"My name is SirYwell and I am playing on eldoria."}`
+
+
+Now there are two more small feature. Of course you can also delete a placeholder with:\
 `c.removePlaceholder("%player%");`\
-or all placeholders:\
+or all placeholders if you don't like them anymore or if you need a fresh start:\
 `c.clearPlaceholder();`
 
 ## Marker
@@ -127,6 +136,8 @@ A sections starts with a start marker and ends with a end marker.
 
 Start Marker: `[marker]`\
 End Marker: `[/marker]`
+
+A end section is not always needed. If you want to mark the whole text after the marker, dont end it end on the marker will be applied to the whole text after the marker.
 
 Here is a list of marker and the usage:
 
