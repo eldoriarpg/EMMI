@@ -49,10 +49,10 @@ This is way easier to understand and pretty neat
 
 ## Implementation
 
-That sounds nice, but how difficult is the implementation?
+That looks nice, but how difficult is the implementation?
 
 ### Basic Implementation
-The basic implementation is pretty easy and self explaining:\
+The basic implementation is pretty easy and self explaining:
 
 Just import: `de.eldoria.emmi.converter`
 
@@ -63,7 +63,7 @@ Then call the static method convert() on JsonConverter and pass the EMMI message
 Yes thats all. I think this is pretty easy.
 
 ### Implementation with Placeholdern
-Placeholder are on more nice feature of EMMI. They are simple but useful.
+Placeholder are one more nice feature of EMMI. They are simple but useful.
 Let's start with the creation.
 
 **Creation**\
@@ -106,9 +106,6 @@ Now there are two more small feature. Of course you can also delete one:\
 `c.removePlaceholder("%player%");`\
 or all placeholders:\
 `c.clearPlaceholder();`
-
-
-
 
 ## Marker
 EMMI uses a marker system to format text. \
