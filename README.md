@@ -50,6 +50,52 @@ Then call the static method convert() on JsonConverter and pass the EMMI message
 
 Yes thats all. I think this is pretty easy.
 
+### Implementation with Placeholdern
+Placeholder are on more nice feature of EMMI. They are simple but useful.
+Let's start with the creation.
+
+**Creation**\
+To create Placeholders you will need a placeholder creator. It first seems a bit weird, but in the end it will be useful.\
+Creation is simple:\
+`Placeholder.Creator c = new Placeholder.Creator();`
+
+After this you can create placeholder. As many as you want.\
+The creator caches your placeholder and keep them save and warm:\
+`c.create("%player%", "Hadde").create("%servername%", "eldoria")`
+
+After that you can use them everytime. I recommend to cache the creator at a good and reachable place.\
+Let's have a look at a example implementation:
+
+        String myEmmiMessage = "My name is %player% and I am playing on %servername%.";
+
+        Placeholder.Creator c = new Placeholder.Creator();
+        c.create("%player%", "Hadde").create("%servername%", "eldoria");
+
+        String myTellrawMessage = JsonConverter.convert(myEmmiMessage, c.toArray());
+
+Now your myTellrawMessage looks like this:\
+`{"text":"My name is Hadde and I am playing on eldoria."}`
+
+But yes I hear you saying "But not every player has the same name."\
+Of course and that's why you can change the value of a placeholder every time.\
+
+        String myEmmiMessage = "My name is %player% and I am playing on %servername%.";
+
+        Placeholder.Creator c = new Placeholder.Creator();
+        c.create("%player%", "Hadde").create("%servername%", "eldoria").toArray();
+
+        String myTellrawMessage = JsonConverter.convert(myEmmiMessage, c.toArray());
+        
+        c.changePlaceholderValue("%player%", "SirYwell");  //Changes the player name to "SirYwell"
+        
+        myTellrawMessage = JsonConverter.convert(myEmmiMessage, c.toArray());
+
+Now there are two more small feature. Of course you can also delete one:\
+`c.removePlaceholder("%player%");`\
+or all placeholders:\
+`c.clearPlaceholder();`
+
+
 
 
 ## Marker
