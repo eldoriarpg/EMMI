@@ -1,4 +1,4 @@
-# EMMI - Eldoria Message Markup Interpreter
+# EMMI - Eldoria Message Markup Interpreter for Minecraft
 EMMI is a easy way to generate complex JSON strings for the Minecraft chat with a easy marker system. It even supports Placeholder if u want.
 
 ## Overview
